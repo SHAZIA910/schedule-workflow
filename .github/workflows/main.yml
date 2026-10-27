@@ -1,11 +1,18 @@
-name: schedule jobs:
-  on:
+
+name: Schedule Workflow
+
+on:
   schedule:
-  -cron: '0 0 ***'
-  jobs:
+    - cron: '0 0 * * *'
+
+  workflow_dispatch:
+
+jobs:
   run_script:
-  run_on: ubunto_latest
-  steps:
-  -name: print message 
-  run: echo "schedule workflow executed "
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Scheduled workflow executed"
+
   
